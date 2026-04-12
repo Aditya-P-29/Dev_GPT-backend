@@ -23,11 +23,15 @@ app.use("/api", chatRoutes);
 app.use("/api/auth", authRoutes);
 
 const connectDB = async () => {
+  if (!process.env.MONGODB_URI) {
+    console.error("MONGODB_URI is not set. Add it in Render → Environment.");
+    return;
+  }
   try {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log("connected with database");
   } catch (err) {
-    console.log("failed to connect with database", err);
+    console.error("failed to connect with database", err);
   }
 };
 

@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: "https://devgpt.vercel.app" // your actual Vercel URL
+  origin: "https://dev-gpt-frontend.vercel.app" // your actual Vercel URL
 }))
 
 app.use("/api", chatRoutes);

@@ -36,6 +36,10 @@ const start = async () => {
 
 start();
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' })
+});
+
 
 
 //app.post("/test", async (req, res) => {

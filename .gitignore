@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment (set variables in Railway → Variables)
+.env
+.env.*
+!.env.example
+
+# Logs and runtime
+logs
+*.log
+npm-debug.log*
+.DS_Store
+
+# Optional: build output (add if you use a bundler)
+# dist/

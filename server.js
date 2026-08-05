@@ -22,6 +22,12 @@ app.use("/api", chatRoutes);
 
 app.use("/api/auth", authRoutes);
 
+app.get("/test" , async (req, res) => {
+  res.json({
+    msg : "test was successfull!"
+  })
+});
+
 const connectDB = async () => {
   if (!process.env.MONGODB_URI) {
     console.error("MONGODB_URI is not set. Add it in Render → Environment.");
@@ -48,11 +54,7 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' })
 });
 
-app.get("/test" , async (req, res) => {
-  res.json({
-    msg : "test was successfull!"
-  })
-});
+
 
 
 

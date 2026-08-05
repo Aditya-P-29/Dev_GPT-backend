@@ -37,7 +37,7 @@ const connectDB = async () => {
 
 const start = async () => {
   await connectDB();
-  app.listen(PORT, () => {
+  app.listen(PORT, "0.0.0.0" ,() => {
     console.log(`server running on ${PORT}`);
   });
 };
@@ -46,6 +46,12 @@ start();
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' })
+});
+
+app.get("/test" , async (req, res) => {
+  res.json({
+    msg : "test was successfull!"
+  })
 });
 
 

@@ -7,25 +7,31 @@ on:
   push:
     branches: [ "main" ]
 
-
 jobs:
   build:
-
     runs-on: self-hosted
 
     strategy:
       matrix:
         node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - run: npm ci
     - run: npm run build --if-present
-    - run : sudo pm2 restart backend
-    
+
+    # 🔑 Sync code into your backend folder
+    - name: Sync code to backend folder
+      run: rsync -av --delete . ~/actions-runner/_work/devGPT-backend/devGPT-backend
+
+    # 🔑 Restart PM2 with new code
+    - name: Restart backend with PM2
+      run: pm2 restart backend || pm2 start server.js --name backend
+

@@ -30,7 +30,7 @@ app.get("/test" , async (req, res) => {
 
 app.get("/testing", async (req, res) => {
   res.json({
-    msg : "Your workflow is now a continous deployment pipeline!"
+    msg : "Your workflow is now a continous deployment pipeline!, became a dev who is in top 1%"
   })
 })
 

@@ -28,6 +28,12 @@ app.get("/test" , async (req, res) => {
   })
 });
 
+app.get("/testing", async (req, res) => {
+  res.json({
+    msg : "Your workflow is now a continous deployment pipeline!"
+  })
+})
+
 const connectDB = async () => {
   if (!process.env.MONGODB_URI) {
     console.error("MONGODB_URI is not set. Add it in Render → Environment.");

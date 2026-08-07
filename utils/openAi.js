@@ -9,7 +9,7 @@ const getOpenAIAPIResponse = async (messages) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "openai/gpt-oss-120b:free",
+        model: "nvidia/nemotron-3-ultra-550b-a55b:free",
         messages,
         stream: false
       }),

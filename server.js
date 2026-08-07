@@ -14,13 +14,13 @@ const PORT = 8080;
 app.use(express.json());
 
 
-// app.use(cors({
-//   origin: "https://dev-gpt-frontend.vercel.app" // your actual Vercel URL
-// }))
-
 app.use(cors({
-  origin: "http://ec2-3-110-122-201.ap-south-1.compute.amazonaws.com" // your actual Vercel URL
+  origin: "https://dev-gpt-frontend.vercel.app" // your actual Vercel URL
 }))
+
+// app.use(cors({
+//   origin: "http://ec2-3-110-122-201.ap-south-1.compute.amazonaws.com" // your actual Vercel URL
+// }))
 
 app.use("/api", chatRoutes);
 

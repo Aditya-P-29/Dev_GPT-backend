@@ -28,7 +28,7 @@ app.use("/api/auth", authRoutes);
 
 app.get("/test" , async (req, res) => {
   res.json({
-    msg : "test was successfull!"
+    msg : "test was successfull, well done!"
   })
 });
 

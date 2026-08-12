@@ -24,8 +24,9 @@ app.use(express.json());
 // }))
 
 app.use(cors({
-  origin: "http://ec2-3-110-122-201.ap-south-1.compute.amazonaws.com" 
-}))
+  origin: process.env.VITE_API_URL,   // e.g. https://your-frontend.vercel.app
+  credentials: true                   
+}));
 
 app.use("/api", chatRoutes);
 
